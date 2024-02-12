@@ -1,6 +1,7 @@
 import fs from 'fs'
 
 import express, { Express } from 'express';
+import cookies from "cookie-parser";
 
 import { CS571DefaultSecretConfig, CS571Initializer } from '@cs571/s24-api-framework'
 import { CS571AllSaleItemsRoute } from './routes/all-sale-items';
@@ -11,6 +12,8 @@ import { SaleItem } from './model/sale-item';
 console.log("Welcome to HW3!");
 
 const app: Express = express();
+
+app.use(cookies());
 
 const appBundle = CS571Initializer.init(app, {
   allowNoAuth: [],
